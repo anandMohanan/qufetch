@@ -40,24 +40,29 @@ var rootCmd = &cobra.Command{
 			Uptime string
 			Pkgs   string
 			App    string
+			Memory string
+			User   string
 		}{
 			OS:     util.OS(),
 			Kernel: util.Kernel(),
 			Uptime: util.Uptime(),
 			Pkgs:   util.Pkgs(),
+			Memory: util.Memory(),
 			App:    app.Name,
+			User:   util.User(),
 		}
 
 		t, err := template.New("system").Funcs(map[string]any{
-			"faint":   lipgloss.NewStyle().Faint(true).Render,
-			"bold":    lipgloss.NewStyle().Bold(true).Render,
-			"magenta": lipgloss.NewStyle().Foreground(color.Purple).Render,
-		}).Parse(`{{ magenta "▇▇▇" }} {{ magenta .App }} 
+			"faint":   lipgloss.NewStyle().Foreground(color.Black).Render,
+			"bold":    lipgloss.NewStyle().Foreground(color.HiWhite).Render,
+			"magenta": lipgloss.NewStyle().Foreground(color.Yellow).Render,
+		}).Parse(`{{ magenta "▇▇▇" }} {{ magenta .User }} 
 
   {{ faint "OS" }}       {{ bold .OS }}
   {{ faint "Kernel" }}   {{ bold .Kernel }}
   {{ faint "Uptime" }}   {{ bold .Uptime }}
   {{ faint "Pkgs" }}     {{ bold .Pkgs }}
+  {{ faint "Memory" }}   {{ bold .Memory }}
 `)
 		handleErr(err)
 		handleErr(t.Execute(cmd.OutOrStdout(), systemInfo))
