@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/b8ec7b1f-5b90-429c-bd75-3d3624ac9eb1)
+
+
 ## Installation Instructions for Linux Users
 
 You can easily download and install the `qufetch` binary by following these steps:
@@ -18,6 +21,3 @@ You can easily download and install the `qufetch` binary by following these step
     ```
 
 Now you can run `qufetch` from anywhere in your terminal.
-
-
-![image](https://github.com/user-attachments/assets/b8ec7b1f-5b90-429c-bd75-3d3624ac9eb1)
